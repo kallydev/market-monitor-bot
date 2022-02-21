@@ -20,7 +20,7 @@ const main = async () => {
 
     const telegramBot = new Telegraf(String(process.env.TELEGRAM_BOT_TOKEN));
 
-    const web3 = new Web3(process.env.WEB3_ENDPOINT || "https://bsc-dataseed.binance.org/");
+    const web3 = new Web3(process.env.WEB3_PROVIDER || "https://bsc-dataseed.binance.org/");
     const pancakeSwapRouterContract = new web3.eth.Contract(PancakeSwapRouterABI as AbiItem[], PancakeSwapRouterAddress);
 
     const cronJob = new CronJob("0 * * * *", async () => {
